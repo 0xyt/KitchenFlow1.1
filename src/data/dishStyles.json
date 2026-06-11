@@ -1,0 +1,102 @@
+[
+  {
+    "id": "style_sandwich",
+    "nombre": "Sándwich",
+    "emoji": "🥪",
+    "base": "pan",
+    "tiempoBase": 8,
+    "precioBase": 2.00,
+    "descripcion": "Dos piezas de pan con ingredientes en medio",
+    "sugerencia": "Perfecto para carnes frías, quesos y verduras frescas"
+  },
+  {
+    "id": "style_ensalada",
+    "nombre": "Ensalada",
+    "emoji": "🥗",
+    "base": "hoja verde",
+    "tiempoBase": 5,
+    "precioBase": 1.50,
+    "descripcion": "Base de hojas verdes con ingredientes frescos",
+    "sugerencia": "Ideal para proteínas magras, frutas y aderezos ligeros"
+  },
+  {
+    "id": "style_bowl",
+    "nombre": "Bowl",
+    "emoji": "🥙",
+    "base": "arroz/quinoa",
+    "tiempoBase": 10,
+    "precioBase": 3.00,
+    "descripcion": "Base de grano con ingredientes servidos en un tazón",
+    "sugerencia": "Combina bien con vegetales asados, proteínas y salsas"
+  },
+  {
+    "id": "style_wrap",
+    "nombre": "Wrap",
+    "emoji": "🌯",
+    "base": "tortilla",
+    "tiempoBase": 7,
+    "precioBase": 2.50,
+    "descripcion": "Tortilla enrollada con ingredientes en el interior",
+    "sugerencia": "Excelente para pollo, verduras salteadas y salsas cremosas"
+  },
+  {
+    "id": "style_pizza",
+    "nombre": "Pizza",
+    "emoji": "🍕",
+    "base": "masa",
+    "tiempoBase": 15,
+    "precioBase": 5.00,
+    "descripcion": "Masa estirada cubierta con ingredientes y horneada",
+    "sugerencia": "Clásica con tomate, queso y toppings variados"
+  },
+  {
+    "id": "style_taco",
+    "nombre": "Taco",
+    "emoji": "🌮",
+    "base": "tortilla maíz",
+    "tiempoBase": 6,
+    "precioBase": 1.80,
+    "descripcion": "Tortilla de maíz doblada con ingredientes",
+    "sugerencia": "Perfecto para carnes deshebradas, cebolla y cilantro"
+  },
+  {
+    "id": "style_sopa",
+    "nombre": "Sopa",
+    "emoji": "🥣",
+    "base": "caldo",
+    "tiempoBase": 12,
+    "precioBase": 3.50,
+    "descripcion": "Caldo con ingredientes cocidos, servido caliente",
+    "sugerencia": "Ideal para verduras, legumbres y fideos"
+  },
+  {
+    "id": "style_brocheta",
+    "nombre": "Brocheta",
+    "emoji": "🍢",
+    "base": "palo",
+    "tiempoBase": 9,
+    "precioBase": 2.20,
+    "descripcion": "Ingredientes ensartados en un palo y cocinados",
+    "sugerencia": "Genial para carnes marinadas, pimientos y cebolla"
+  },
+  {
+    "id": "style_tostada",
+    "nombre": "Tostada",
+    "emoji": "🍞",
+    "base": "pan tostado",
+    "tiempoBase": 5,
+    "precioBase": 1.50,
+    "descripcion": "Pan tostado con ingredientes encima",
+    "sugerencia": "Rápida y versátil: aguacate, tomate, huevo"
+  },
+  {
+    "id": "style_pastel",
+    "nombre": "Pastel",
+    "emoji": "🎂",
+    "base": "masa dulce",
+    "tiempoBase": 20,
+    "precioBase": 4.00,
+    "descripcion": "Preparación horneada con masa dulce y relleno",
+    "sugerencia": "Para postres: frutas, crema y chocolate"
+  }
+]

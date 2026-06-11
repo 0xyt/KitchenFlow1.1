@@ -1,0 +1,12 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "combos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

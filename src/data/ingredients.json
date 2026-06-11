@@ -1,0 +1,802 @@
+[
+  {
+    "id": "ing_001",
+    "nombre": "Tomate",
+    "emoji": "🍅",
+    "categoria": "verdura",
+    "temporada": "verano",
+    "palabrasClave": ["crudo", "cocción rápida", "salsa", "ácido", "fresco"]
+  },
+  {
+    "id": "ing_002",
+    "nombre": "Cebolla",
+    "emoji": "🧅",
+    "categoria": "verdura",
+    "temporada": "todo el año",
+    "palabrasClave": ["sofrito", "base", "picante", "caramelo", "cocción larga"]
+  },
+  {
+    "id": "ing_003",
+    "nombre": "Ajo",
+    "emoji": "🧄",
+    "categoria": "verdura",
+    "temporada": "todo el año",
+    "palabrasClave": ["aromático", "intenso", "base", "salteado", "crudo"]
+  },
+  {
+    "id": "ing_004",
+    "nombre": "Zanahoria",
+    "emoji": "🥕",
+    "categoria": "verdura",
+    "temporada": "todo el año",
+    "palabrasClave": ["dulce", "crujiente", "hervido", "sofrito", "rallado"]
+  },
+  {
+    "id": "ing_005",
+    "nombre": "Pimiento rojo",
+    "emoji": "🫑",
+    "categoria": "verdura",
+    "temporada": "verano",
+    "palabrasClave": ["asado", "dulce", "crujiente", "relleno", "color"]
+  },
+  {
+    "id": "ing_006",
+    "nombre": "Berenjena",
+    "emoji": "🍆",
+    "categoria": "verdura",
+    "temporada": "verano",
+    "palabrasClave": ["asada", "cremosa", "parrilla", "rellena", "esponjosa"]
+  },
+  {
+    "id": "ing_007",
+    "nombre": "Calabacín",
+    "emoji": "🥒",
+    "categoria": "verdura",
+    "temporada": "verano",
+    "palabrasClave": ["ligero", "parrilla", "salteado", "crujiente", "bajo caloría"]
+  },
+  {
+    "id": "ing_008",
+    "nombre": "Espinaca",
+    "emoji": "🥬",
+    "categoria": "verdura",
+    "temporada": "primavera",
+    "palabrasClave": ["salteada", "cruda", "ensalada", "hierro", "vapor"]
+  },
+  {
+    "id": "ing_009",
+    "nombre": "Lechuga",
+    "emoji": "🥗",
+    "categoria": "verdura",
+    "temporada": "todo el año",
+    "palabrasClave": ["cruda", "ensalada", "fresca", "crujiente", "base"]
+  },
+  {
+    "id": "ing_010",
+    "nombre": "Brócoli",
+    "emoji": "🥦",
+    "categoria": "verdura",
+    "temporada": "otoño",
+    "palabrasClave": ["vapor", "salteado", "crujiente", "fibra", "nutritivo"]
+  },
+  {
+    "id": "ing_011",
+    "nombre": "Papa",
+    "emoji": "🥔",
+    "categoria": "verdura",
+    "temporada": "todo el año",
+    "palabrasClave": ["horneada", "frita", "puré", "hervida", "cremosa"]
+  },
+  {
+    "id": "ing_012",
+    "nombre": "Champiñón",
+    "emoji": "🍄",
+    "categoria": "verdura",
+    "temporada": "otoño",
+    "palabrasClave": ["salteado", "umami", "cremoso", "parrilla", "tierra"]
+  },
+  {
+    "id": "ing_013",
+    "nombre": "Coliflor",
+    "emoji": "🥦",
+    "categoria": "verdura",
+    "temporada": "otoño",
+    "palabrasClave": ["vapor", "asada", "puré", "bajo carbohidrato", "versátil"]
+  },
+  {
+    "id": "ing_014",
+    "nombre": "Espárrago",
+    "emoji": "🌱",
+    "categoria": "verdura",
+    "temporada": "primavera",
+    "palabrasClave": ["parrilla", "fino", "crujiente", "vapor", "elegante"]
+  },
+  {
+    "id": "ing_015",
+    "nombre": "Apio",
+    "emoji": "🥬",
+    "categoria": "verdura",
+    "temporada": "todo el año",
+    "palabrasClave": ["crujiente", "base", "caldo", "fibroso", "fresco"]
+  },
+  {
+    "id": "ing_016",
+    "nombre": "Puerro",
+    "emoji": "🧅",
+    "categoria": "verdura",
+    "temporada": "invierno",
+    "palabrasClave": ["suave", "base", "crema", "salteado", "caldo"]
+  },
+  {
+    "id": "ing_017",
+    "nombre": "Calabaza",
+    "emoji": "🎃",
+    "categoria": "verdura",
+    "temporada": "otoño",
+    "palabrasClave": ["crema", "dulce", "asada", "puré", "sopa"]
+  },
+  {
+    "id": "ing_018",
+    "nombre": "Remolacha",
+    "emoji": "🫐",
+    "categoria": "verdura",
+    "temporada": "otoño",
+    "palabrasClave": ["asada", "dulce", "color", "hervida", "rallada"]
+  },
+  {
+    "id": "ing_019",
+    "nombre": "Maíz",
+    "emoji": "🌽",
+    "categoria": "verdura",
+    "temporada": "verano",
+    "palabrasClave": ["dulce", "parrilla", "hervido", "ensalada", "granos"]
+  },
+  {
+    "id": "ing_020",
+    "nombre": "Alcachofa",
+    "emoji": "🌿",
+    "categoria": "verdura",
+    "temporada": "primavera",
+    "palabrasClave": ["hervida", "asada", "fondo", "delicada", "hojas"]
+  },
+  {
+    "id": "ing_021",
+    "nombre": "Pollo",
+    "emoji": "🍗",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["parrilla", "horneado", "salteado", "jugoso", "versátil"]
+  },
+  {
+    "id": "ing_022",
+    "nombre": "Res",
+    "emoji": "🥩",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["parrilla", "sartén", "guiso", "jugoso", "sangrante"]
+  },
+  {
+    "id": "ing_023",
+    "nombre": "Cerdo",
+    "emoji": "🥓",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["horneado", "frito", "jugoso", "costilla", "lento"]
+  },
+  {
+    "id": "ing_024",
+    "nombre": "Cordero",
+    "emoji": "🐑",
+    "categoria": "carne",
+    "temporada": "primavera",
+    "palabrasClave": ["horneado", "guiso", "intenso", "especias", "lento"]
+  },
+  {
+    "id": "ing_025",
+    "nombre": "Pavo",
+    "emoji": "🦃",
+    "categoria": "carne",
+    "temporada": "otoño",
+    "palabrasClave": ["horneado", "relleno", "magro", "jugoso", "festivo"]
+  },
+  {
+    "id": "ing_026",
+    "nombre": "Hígado",
+    "emoji": "🥩",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["sartén", "intenso", "hierro", "paté", "salteado"]
+  },
+  {
+    "id": "ing_027",
+    "nombre": "Chorizo",
+    "emoji": "🌭",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["parrilla", "ahumado", "picante", "frito", "guiso"]
+  },
+  {
+    "id": "ing_028",
+    "nombre": "Jamón serrano",
+    "emoji": "🍖",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["crudo", "curado", "salado", "fino", "tapas"]
+  },
+  {
+    "id": "ing_029",
+    "nombre": "Tocino",
+    "emoji": "🥓",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["frito", "ahumado", "crujiente", "grasoso", "desayuno"]
+  },
+  {
+    "id": "ing_030",
+    "nombre": "Salchicha",
+    "emoji": "🌭",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["parrilla", "hervida", "ahumada", "casera", "rápida"]
+  },
+  {
+    "id": "ing_031",
+    "nombre": "Pato",
+    "emoji": "🦆",
+    "categoria": "carne",
+    "temporada": "invierno",
+    "palabrasClave": ["confitado", "horneado", "grasoso", "jugoso", "piel crujiente"]
+  },
+  {
+    "id": "ing_032",
+    "nombre": "Conejo",
+    "emoji": "🐇",
+    "categoria": "carne",
+    "temporada": "primavera",
+    "palabrasClave": ["guiso", "magro", "suave", "lento", "cazuela"]
+  },
+  {
+    "id": "ing_033",
+    "nombre": "Lomo embuchado",
+    "emoji": "🥩",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["curado", "fino", "salado", "tapas", "corte fino"]
+  },
+  {
+    "id": "ing_034",
+    "nombre": "Solomillo de cerdo",
+    "emoji": "🥩",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["horneado", "jugoso", "sartén", "relleno", "medallones"]
+  },
+  {
+    "id": "ing_035",
+    "nombre": "Carne picada",
+    "emoji": "🥩",
+    "categoria": "carne",
+    "temporada": "todo el año",
+    "palabrasClave": ["hamburguesa", "albóndiga", "sofrito", "versátil", "rápida"]
+  },
+  {
+    "id": "ing_036",
+    "nombre": "Salmón",
+    "emoji": "🐟",
+    "categoria": "pescado",
+    "temporada": "primavera",
+    "palabrasClave": ["parrilla", "horneado", "graso", "omega 3", "sashimi"]
+  },
+  {
+    "id": "ing_037",
+    "nombre": "Atún",
+    "emoji": "🐟",
+    "categoria": "pescado",
+    "temporada": "verano",
+    "palabrasClave": ["parrilla", "enlatado", "ensalada", "firme", "tartar"]
+  },
+  {
+    "id": "ing_038",
+    "nombre": "Merluza",
+    "emoji": "🐟",
+    "categoria": "pescado",
+    "temporada": "todo el año",
+    "palabrasClave": ["hervida", "horneada", "blanca", "suave", "rebozada"]
+  },
+  {
+    "id": "ing_039",
+    "nombre": "Bacalao",
+    "emoji": "🐟",
+    "categoria": "pescado",
+    "temporada": "invierno",
+    "palabrasClave": ["desalado", "horneado", "guiso", "firme", "salado"]
+  },
+  {
+    "id": "ing_040",
+    "nombre": "Langostino",
+    "emoji": "🦐",
+    "categoria": "pescado",
+    "temporada": "todo el año",
+    "palabrasClave": ["parrilla", "hervido", "salteado", "delicado", "marisco"]
+  },
+  {
+    "id": "ing_041",
+    "nombre": "Mejillón",
+    "emoji": "🦪",
+    "categoria": "pescado",
+    "temporada": "invierno",
+    "palabrasClave": ["vapor", "marinero", "salsa", "ahumado", "mar"]
+  },
+  {
+    "id": "ing_042",
+    "nombre": "Pulpo",
+    "emoji": "🐙",
+    "categoria": "pescado",
+    "temporada": "otoño",
+    "palabrasClave": ["hervido", "parrilla", "tierno", "gallega", "mar"]
+  },
+  {
+    "id": "ing_043",
+    "nombre": "Dorada",
+    "emoji": "🐟",
+    "categoria": "pescado",
+    "temporada": "verano",
+    "palabrasClave": ["horneada", "sal", "parrilla", "firme", "mediterránea"]
+  },
+  {
+    "id": "ing_044",
+    "nombre": "Calamar",
+    "emoji": "🦑",
+    "categoria": "pescado",
+    "temporada": "verano",
+    "palabrasClave": ["rebozado", "parrilla", "tierno", "anillas", "mar"]
+  },
+  {
+    "id": "ing_045",
+    "nombre": "Trucha",
+    "emoji": "🐟",
+    "categoria": "pescado",
+    "temporada": "primavera",
+    "palabrasClave": ["parrilla", "ahumada", "sartén", "delicada", "río"]
+  },
+  {
+    "id": "ing_046",
+    "nombre": "Sal",
+    "emoji": "🧂",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["sazón", "conservación", "básico", "realza", "mineral"]
+  },
+  {
+    "id": "ing_047",
+    "nombre": "Pimienta negra",
+    "emoji": "🫘",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["picante", "aromática", "molida", "entero", "realza"]
+  },
+  {
+    "id": "ing_048",
+    "nombre": "Orégano",
+    "emoji": "🌿",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["seco", "italiano", "pizza", "aromático", "infusión"]
+  },
+  {
+    "id": "ing_049",
+    "nombre": "Pimentón",
+    "emoji": "🫘",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["ahumado", "dulce", "color", "español", "salsa"]
+  },
+  {
+    "id": "ing_050",
+    "nombre": "Comino",
+    "emoji": "🫘",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["tierra", "mexicano", "cálido", "intenso", "mole"]
+  },
+  {
+    "id": "ing_051",
+    "nombre": "Canela",
+    "emoji": "🫘",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["dulce", "cálida", "rama", "polvo", "postre"]
+  },
+  {
+    "id": "ing_052",
+    "nombre": "Laurel",
+    "emoji": "🌿",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["hoja", "guiso", "aromático", "infusión", "cocción larga"]
+  },
+  {
+    "id": "ing_053",
+    "nombre": "Azafrán",
+    "emoji": "🌺",
+    "categoria": "especia",
+    "temporada": "otoño",
+    "palabrasClave": ["color", "caro", "paella", "intenso", "hebra"]
+  },
+  {
+    "id": "ing_054",
+    "nombre": "Perejil",
+    "emoji": "🌿",
+    "categoria": "especia",
+    "temporada": "todo el año",
+    "palabrasClave": ["fresco", "decoración", "suave", "tallo", "verde"]
+  },
+  {
+    "id": "ing_055",
+    "nombre": "Cilantro",
+    "emoji": "🌿",
+    "categoria": "especia",
+    "temporada": "verano",
+    "palabrasClave": ["fresco", "mexicano", "intenso", "hoja", "polémico"]
+  },
+  {
+    "id": "ing_056",
+    "nombre": "Agua",
+    "emoji": "💧",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["base", "hervir", "diluir", "cocción", "hidratación"]
+  },
+  {
+    "id": "ing_057",
+    "nombre": "Aceite de oliva",
+    "emoji": "🫒",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["base", "sofrito", "aliño", "virgen extra", "grasa"]
+  },
+  {
+    "id": "ing_058",
+    "nombre": "Aceite vegetal",
+    "emoji": "🫒",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["fritura", "neutro", "alto punto humo", "freír", "grasa"]
+  },
+  {
+    "id": "ing_059",
+    "nombre": "Leche",
+    "emoji": "🥛",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["cremosa", "base", "salsa", "horneado", "láctea"]
+  },
+  {
+    "id": "ing_060",
+    "nombre": "Caldo de pollo",
+    "emoji": "🍲",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["base", "sopa", "guiso", "fondo", "sabroso"]
+  },
+  {
+    "id": "ing_061",
+    "nombre": "Caldo de verduras",
+    "emoji": "🥬",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["base", "sopa", "guiso", "ligero", "vegetal"]
+  },
+  {
+    "id": "ing_062",
+    "nombre": "Vino blanco",
+    "emoji": "🍷",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["desglasar", "ácido", "mariscos", "reducción", "cocción"]
+  },
+  {
+    "id": "ing_063",
+    "nombre": "Vino tinto",
+    "emoji": "🍷",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["reducción", "carnes", "guiso", "tanino", "cocción larga"]
+  },
+  {
+    "id": "ing_064",
+    "nombre": "Salsa de soja",
+    "emoji": "🫘",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["salado", "umami", "asiático", "marinada", "oscuro"]
+  },
+  {
+    "id": "ing_065",
+    "nombre": "Crema de leche",
+    "emoji": "🥛",
+    "categoria": "líquido",
+    "temporada": "todo el año",
+    "palabrasClave": ["espesa", "grasa", "salsa", "montar", "cremosa"]
+  },
+  {
+    "id": "ing_066",
+    "nombre": "Arroz",
+    "emoji": "🍚",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["hervido", "paella", "sushi", "guarnición", "absorbe"]
+  },
+  {
+    "id": "ing_067",
+    "nombre": "Pasta seca",
+    "emoji": "🍝",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["hervida", "italiana", "salsa", "al dente", "guarnición"]
+  },
+  {
+    "id": "ing_068",
+    "nombre": "Pan",
+    "emoji": "🍞",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["tostado", "base", "horneado", "crujiente", "masa"]
+  },
+  {
+    "id": "ing_069",
+    "nombre": "Lenteja",
+    "emoji": "🫘",
+    "categoria": "carbohidrato",
+    "temporada": "invierno",
+    "palabrasClave": ["guiso", "hervida", "fibra", "legumbre", "cocción larga"]
+  },
+  {
+    "id": "ing_070",
+    "nombre": "Garbanzo",
+    "emoji": "🫘",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["cocido", "hummus", "guiso", "legumbre", "cremoso"]
+  },
+  {
+    "id": "ing_071",
+    "nombre": "Frijol negro",
+    "emoji": "🫘",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["cocido", "mexicano", "cremoso", "guiso", "legumbre"]
+  },
+  {
+    "id": "ing_072",
+    "nombre": "Quinoa",
+    "emoji": "🌾",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["hervida", "proteína", "ensalada", "ligera", "grano"]
+  },
+  {
+    "id": "ing_073",
+    "nombre": "Papa",
+    "emoji": "🥔",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["horneada", "frita", "puré", "hervida", "cremosa"]
+  },
+  {
+    "id": "ing_074",
+    "nombre": "Boniato",
+    "emoji": "🍠",
+    "categoria": "carbohidrato",
+    "temporada": "otoño",
+    "palabrasClave": ["dulce", "asado", "puré", "horneado", "fibra"]
+  },
+  {
+    "id": "ing_075",
+    "nombre": "Cuscús",
+    "emoji": "🍚",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["rápido", "ensalada", "grano", "esponjoso", "marroquí"]
+  },
+  {
+    "id": "ing_076",
+    "nombre": "Avena",
+    "emoji": "🥣",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["desayuno", "fibra", "cremosa", "hervida", "cereal"]
+  },
+  {
+    "id": "ing_077",
+    "nombre": "Harina de trigo",
+    "emoji": "🌾",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["masa", "horneado", "espesante", "pan", "rebozado"]
+  },
+  {
+    "id": "ing_078",
+    "nombre": "Fideo",
+    "emoji": "🍜",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["sopa", "hervido", "rápido", "caldo", "fino"]
+  },
+  {
+    "id": "ing_079",
+    "nombre": "Maíz palomero",
+    "emoji": "🍿",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["microondas", "crujiente", "snack", "inflado", "salado"]
+  },
+  {
+    "id": "ing_080",
+    "nombre": "Pan rallado",
+    "emoji": "🍞",
+    "categoria": "carbohidrato",
+    "temporada": "todo el año",
+    "palabrasClave": ["rebozado", "empanizado", "crujiente", "gratinado", "textura"]
+  },
+  {
+    "id": "ing_081",
+    "nombre": "Limón",
+    "emoji": "🍋",
+    "categoria": "fruta",
+    "temporada": "todo el año",
+    "palabrasClave": ["ácido", "zumo", "ralladura", "marinada", "fresco"]
+  },
+  {
+    "id": "ing_082",
+    "nombre": "Aguacate",
+    "emoji": "🥑",
+    "categoria": "fruta",
+    "temporada": "todo el año",
+    "palabrasClave": ["cremoso", "guacamole", "graso", "ensalada", "tostada"]
+  },
+  {
+    "id": "ing_083",
+    "nombre": "Manzana",
+    "emoji": "🍎",
+    "categoria": "fruta",
+    "temporada": "otoño",
+    "palabrasClave": ["dulce", "cruda", "horneada", "postre", "ácida"]
+  },
+  {
+    "id": "ing_084",
+    "nombre": "Plátano",
+    "emoji": "🍌",
+    "categoria": "fruta",
+    "temporada": "todo el año",
+    "palabrasClave": ["dulce", "cremoso", "desayuno", "energía", "maduro"]
+  },
+  {
+    "id": "ing_085",
+    "nombre": "Fresa",
+    "emoji": "🍓",
+    "categoria": "fruta",
+    "temporada": "primavera",
+    "palabrasClave": ["dulce", "postre", "mermelada", "fresca", "roja"]
+  },
+  {
+    "id": "ing_086",
+    "nombre": "Uva",
+    "emoji": "🍇",
+    "categoria": "fruta",
+    "temporada": "otoño",
+    "palabrasClave": ["dulce", "vino", "snack", "jugosa", "racimo"]
+  },
+  {
+    "id": "ing_087",
+    "nombre": "Mango",
+    "emoji": "🥭",
+    "categoria": "fruta",
+    "temporada": "verano",
+    "palabrasClave": ["dulce", "tropical", "jugoso", "ensalada", "batido"]
+  },
+  {
+    "id": "ing_088",
+    "nombre": "Piña",
+    "emoji": "🍍",
+    "categoria": "fruta",
+    "temporada": "verano",
+    "palabrasClave": ["dulce", "ácida", "tropical", "asada", "jugosa"]
+  },
+  {
+    "id": "ing_089",
+    "nombre": "Coco",
+    "emoji": "🥥",
+    "categoria": "fruta",
+    "temporada": "todo el año",
+    "palabrasClave": ["tropical", "leche", "rallado", "cremoso", "dulce"]
+  },
+  {
+    "id": "ing_090",
+    "nombre": "Cereza",
+    "emoji": "🍒",
+    "categoria": "fruta",
+    "temporada": "primavera",
+    "palabrasClave": ["dulce", "postre", "roja", "jugosa", "mermelada"]
+  },
+  {
+    "id": "ing_091",
+    "nombre": "Queso parmesano",
+    "emoji": "🧀",
+    "categoria": "lácteo",
+    "temporada": "todo el año",
+    "palabrasClave": ["curado", "rallado", "intenso", "italiano", "gratinado"]
+  },
+  {
+    "id": "ing_092",
+    "nombre": "Queso mozzarella",
+    "emoji": "🧀",
+    "categoria": "lácteo",
+    "temporada": "todo el año",
+    "palabrasClave": ["fresco", "cremoso", "pizza", "derretido", "suave"]
+  },
+  {
+    "id": "ing_093",
+    "nombre": "Queso cheddar",
+    "emoji": "🧀",
+    "categoria": "lácteo",
+    "temporada": "todo el año",
+    "palabrasClave": ["amarillo", "fundido", "intenso", "hamburguesa", "cremoso"]
+  },
+  {
+    "id": "ing_094",
+    "nombre": "Yogur natural",
+    "emoji": "🥛",
+    "categoria": "lácteo",
+    "temporada": "todo el año",
+    "palabrasClave": ["cremoso", "ácido", "desayuno", "salsa", "probiótico"]
+  },
+  {
+    "id": "ing_095",
+    "nombre": "Requesón",
+    "emoji": "🧀",
+    "categoria": "lácteo",
+    "temporada": "todo el año",
+    "palabrasClave": ["fresco", "suave", "bajo grasa", "relleno", "cremoso"]
+  },
+  {
+    "id": "ing_096",
+    "nombre": "Huevo",
+    "emoji": "🥚",
+    "categoria": "otro",
+    "temporada": "todo el año",
+    "palabrasClave": ["proteína", "ligadura", "revuelto", "horneado", "versátil"]
+  },
+  {
+    "id": "ing_097",
+    "nombre": "Tofu",
+    "emoji": "🧊",
+    "categoria": "otro",
+    "temporada": "todo el año",
+    "palabrasClave": ["soja", "neutro", "salteado", "absorbente", "vegano"]
+  },
+  {
+    "id": "ing_098",
+    "nombre": "Alga nori",
+    "emoji": "🌊",
+    "categoria": "otro",
+    "temporada": "todo el año",
+    "palabrasClave": ["sushi", "marina", "crujiente", "umami", "tostada"]
+  },
+  {
+    "id": "ing_099",
+    "nombre": "Miel",
+    "emoji": "🍯",
+    "categoria": "otro",
+    "temporada": "todo el año",
+    "palabrasClave": ["dulce", "natural", "endulzante", "antiséptico", "espesa"]
+  },
+  {
+    "id": "ing_100",
+    "nombre": "Levadura",
+    "emoji": "🧫",
+    "categoria": "otro",
+    "temporada": "todo el año",
+    "palabrasClave": ["masa", "fermentación", "pan", "esponjoso", "horneado"]
+  }
+]
