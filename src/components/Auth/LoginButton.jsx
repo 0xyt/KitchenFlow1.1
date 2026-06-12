@@ -1,5 +1,5 @@
 import { signInWithRedirect, signOut } from 'firebase/auth'
-import { auth, googleProvider } from '../../lib/firebase'
+import { auth, googleProvider, redirectResolver } from '../../lib/firebase'
 
 export default function LoginButton({ user }) {
   const handleLogin = async () => {
@@ -8,9 +8,10 @@ export default function LoginButton({ user }) {
       return
     }
     try {
-      await signInWithRedirect(auth, googleProvider)
+      console.log('[Login] Iniciando redirect a Google...')
+      await signInWithRedirect(auth, googleProvider, redirectResolver)
     } catch (err) {
-      console.error('Error al iniciar sesión:', err)
+      console.error('[Login] Error:', err.code, err.message)
     }
   }
 

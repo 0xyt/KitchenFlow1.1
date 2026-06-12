@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, useRef } from 'react'
 import { onAuthStateChanged, getRedirectResult } from 'firebase/auth'
-import { auth } from '../lib/firebase'
+import { auth, redirectResolver } from '../lib/firebase'
 import useUserRole from '../hooks/useUserRole'
 
 const AuthContext = createContext(null)
@@ -11,25 +11,38 @@ export function AuthProvider({ children }) {
   const initRef = useRef(false)
 
   useEffect(() => {
+    if (initRef.current) return
+    initRef.current = true
+
     if (!auth) {
+      console.warn('[Auth] Firebase auth no disponible')
       setAuthLoading(false)
       return
     }
 
-    if (initRef.current) return
-    initRef.current = true
-
-    getRedirectResult(auth)
+    // Procesar resultado de redirect OAuth (vuelta de Google)
+    getRedirectResult(auth, redirectResolver)
       .then((result) => {
         if (result) {
+          console.log('[Auth] Redirect exitoso:', result.user.displayName)
           setUser(result.user)
+        } else {
+          console.log('[Auth] Sin redirect pendiente')
         }
       })
       .catch((err) => {
-        console.error('[Auth] Redirect error:', err.code, err.message)
+        console.error('[Auth] Error en redirect:', err.code, err.message)
       })
 
+    // Verificar si ya hay sesión activa
+    if (auth.currentUser) {
+      console.log('[Auth] Sesión activa en currentUser:', auth.currentUser.displayName)
+      setUser(auth.currentUser)
+    }
+
+    // Escuchar cambios de autenticación
     const unsub = onAuthStateChanged(auth, (u) => {
+      console.log('[Auth] onAuthStateChanged:', u ? u.displayName : 'null (sesión cerrada)')
       setUser(u)
       setAuthLoading(false)
     })
@@ -39,7 +52,7 @@ export function AuthProvider({ children }) {
 
   const { role, restaurantId, isAdmin, isConsumer, isSuperAdmin, loading: roleLoading } = useUserRole(user)
 
-  const loading = authLoading || (!!user && roleLoading)
+  const loading = authLoading || (!!user && !!auth && roleLoading)
 
   const value = {
     user,
