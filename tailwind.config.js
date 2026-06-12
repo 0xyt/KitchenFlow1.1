@@ -4,7 +4,6 @@ export default {
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -21,7 +20,8 @@ export default {
           800: '#5b21b6',
           900: '#4c1d95',
         },
-        amber: {
+        deep: '#6D3FC7',
+        accent: {
           DEFAULT: '#F59E0B',
           50: '#fffbeb',
           100: '#fef3c7',
@@ -33,6 +33,24 @@ export default {
           700: '#b45309',
           800: '#92400e',
           900: '#78350f',
+        },
+        surface: '#F3F0EB',
+        'surface-hover': '#EBE7E0',
+        bg: '#FAF9F7',
+        text: '#1C1917',
+        muted: '#78716C',
+        danger: {
+          DEFAULT: '#EF4444',
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
         },
         emerald: {
           DEFAULT: '#10B981',
@@ -47,74 +65,37 @@ export default {
           800: '#065f46',
           900: '#064e3b',
         },
-        danger: {
-          DEFAULT: '#EF4444',
-          50: '#fef2f2',
-          100: '#fee2e2',
-          200: '#fecaca',
-          300: '#fca5a5',
-          400: '#f87171',
-          500: '#ef4444',
-          600: '#dc2626',
-          700: '#b91c1c',
-          800: '#991b1b',
-          900: '#7f1d1d',
-        },
-        surface: {
-          DEFAULT: '#1A1A2E',
-          light: '#F8F7FF',
-        },
-        darkbg: {
-          DEFAULT: '#0F0F1A',
-        },
-        borderdark: {
-          DEFAULT: '#2D2D4E',
-        },
       },
       fontFamily: {
-        title: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
-        body: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
-      },
-      borderRadius: {
-        sm: '8px',
-        md: '12px',
-        lg: '20px',
+        inter: ['Inter', 'system-ui', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 1px 3px 0 rgba(139, 92, 246, 0.08), 0 1px 2px -1px rgba(139, 92, 246, 0.05)',
-        'card-lg': '0 4px 6px -1px rgba(139, 92, 246, 0.10), 0 2px 4px -2px rgba(139, 92, 246, 0.06)',
-        'card-xl': '0 10px 15px -3px rgba(139, 92, 246, 0.12), 0 4px 6px -4px rgba(139, 92, 246, 0.08)',
-        'glow': '0 0 12px rgba(139, 92, 246, 0.25)',
-        'glow-amber': '0 0 12px rgba(245, 158, 11, 0.25)',
+        'card': '0 1px 2px 0 rgba(28, 25, 23, 0.05)',
+        'card-md': '0 4px 6px -1px rgba(28, 25, 23, 0.06), 0 2px 4px -2px rgba(28, 25, 23, 0.04)',
+        'card-lg': '0 10px 15px -3px rgba(28, 25, 23, 0.08), 0 4px 6px -4px rgba(28, 25, 23, 0.04)',
+        'glow': '0 0 12px rgba(139, 92, 246, 0.2)',
+        'glow-amber': '0 0 12px rgba(245, 158, 11, 0.2)',
       },
       keyframes: {
-        dashFlow: {
-          '0%': { strokeDashoffset: '0' },
-          '100%': { strokeDashoffset: '-24' },
+        'fade-in': {
+          '0%': { opacity: '0', transform: 'translateY(4px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(139, 92, 246, 0.4)' },
-          '50%': { boxShadow: '0 0 0 8px rgba(139, 92, 246, 0)' },
+        'slide-in': {
+          '0%': { opacity: '0', transform: 'translateX(-8px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
         },
-        'fade-scale': {
-          '0%': { opacity: '0', transform: 'scale(0.96) translateY(8px)' },
-          '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
+        'scale-in': {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
         },
       },
       animation: {
-        flow: 'dashFlow 1s linear infinite',
-        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-        'fade-scale': 'fade-scale 0.25s ease-out',
-        shimmer: 'shimmer 2s ease-in-out infinite',
+        'fade-in': 'fade-in 0.2s ease-out',
+        'slide-in': 'slide-in 0.2s ease-out',
+        'scale-in': 'scale-in 0.15s ease-out',
       },
     },
   },
-  plugins: [
-    require('tailwindcss-animate'),
-  ],
+  plugins: [],
 }

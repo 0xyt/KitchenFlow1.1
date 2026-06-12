@@ -123,12 +123,12 @@ export default function PlateBuilder({ user, restaurant, customIngredients, cust
   )
 
   return (
-    <div className="h-full flex flex-col bg-[hsl(var(--background))]">
-      <div className="px-6 py-4 border-b border-border bg-card">
+    <div className="h-full flex flex-col bg-bg">
+      <div className="px-6 py-4 border-b border-[#E5E0D5] bg-white">
         <div className="flex items-center justify-between">
           <div>
-            <h2 className="font-title text-xl font-extrabold text-primary">🧑‍🍳 Creador de platos</h2>
-            <p className="text-sm text-muted-foreground mt-0.5">
+            <h2 className="font-bold text-xl text-primary">🧑‍🍳 Creador de platos</h2>
+            <p className="text-sm text-muted mt-0.5">
               {restaurant?.name ? `Restaurante: ${restaurant.name}` : 'Crea y publica platos para tu menú digital'}
             </p>
           </div>

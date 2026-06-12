@@ -97,14 +97,14 @@ export default function MenuView({ restaurant, plates, isOwner, onPublish, onDel
   })
 
   return (
-    <div className="h-full flex flex-col bg-[hsl(var(--background))]">
-      <div className="px-6 py-4 border-b border-border bg-card">
+    <div className="h-full flex flex-col bg-bg">
+      <div className="px-6 py-4 border-b border-[#E5E0D5] bg-white">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-title text-xl font-extrabold text-primary flex items-center gap-2">
+            <h2 className="font-bold text-xl text-primary flex items-center gap-2">
               {restaurant?.emoji || '🍽️'} {restaurant?.name || 'Menú del restaurante'}
             </h2>
-            <p className="text-xs text-muted-foreground mt-0.5">
+            <p className="text-xs text-muted mt-0.5">
               {plates.length} platos en el menú
             </p>
           </div>

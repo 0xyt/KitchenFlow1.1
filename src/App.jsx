@@ -5,7 +5,7 @@ import FlowCanvas from './components/Canvas/FlowCanvas'
 import LoginButton from './components/Auth/LoginButton'
 import ThemeToggle from './components/ThemeToggle'
 import SoundToggle from './components/SoundToggle'
-import AdminPanel from './pages/AdminPanel'
+import Admin from './pages/Admin'
 import PlateBuilder from './components/restaurant/PlateBuilder'
 import MenuView from './components/restaurant/MenuView'
 import ingredientsData from './data/ingredients.json'
@@ -37,9 +37,9 @@ function Toast({ message, visible }) {
 
 function MainApp({ user, isAdmin, onSaveFavorite, sounds, restaurantCtx }) {
   return (
-    <div className="h-screen flex flex-col bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
-      <header className="flex items-center justify-between px-6 py-3 border-b border-border bg-card card-shadow z-20">
-        <h1 className="font-title text-2xl font-extrabold text-primary flex items-center gap-2">
+    <div className="h-screen flex flex-col bg-bg text-text">
+      <header className="flex items-center justify-between px-6 py-3 border-b border-[#E5E0D5] bg-white shadow-sm z-20">
+        <h1 className="font-bold text-xl text-primary flex items-center gap-2">
           <span>🧑‍🍳</span>
           KitchenFlow
         </h1>
@@ -113,10 +113,10 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="h-screen flex items-center justify-center bg-[hsl(var(--background))]">
+      <div className="h-screen flex items-center justify-center bg-bg">
         <div className="flex flex-col items-center gap-4">
           <div className="w-8 h-8 border-2 border-[#8B5CF6] border-t-transparent rounded-full animate-spin" />
-          <p className="text-muted-foreground text-sm">Cargando...</p>
+          <p className="text-muted text-sm">Cargando...</p>
         </div>
       </div>
     )
@@ -129,15 +129,8 @@ export default function App() {
   if (route === '#/admin') {
     return (
       <ProtectedRoute requiredRole="restaurant_admin">
-        <div className="h-screen bg-[hsl(var(--background))]">
-          <AdminPanel
-            restaurant={restaurantCtx.restaurant}
-            customIngredients={restaurantCtx.customIngredients}
-            customRecipes={restaurantCtx.customRecipes}
-            customStyles={restaurantCtx.customStyles}
-            onRefresh={restaurantCtx.refresh}
-            user={user}
-          />
+        <div className="min-h-screen bg-bg">
+          <Admin />
           <Toast message={toast.message} visible={toast.visible} />
         </div>
       </ProtectedRoute>
@@ -147,7 +140,7 @@ export default function App() {
   if (route === '#/builder') {
     return (
       <ProtectedRoute requiredRole="restaurant_admin">
-        <div className="h-screen bg-[hsl(var(--background))]">
+        <div className="min-h-screen bg-bg">
           <PlateBuilder
             user={user}
             restaurant={restaurantCtx.restaurant}
@@ -164,7 +157,7 @@ export default function App() {
 
   if (route.startsWith('#/menu')) {
     return (
-      <div className="h-screen bg-[hsl(var(--background))]">
+      <div className="min-h-screen bg-bg">
         <MenuView
           restaurant={restaurantCtx.restaurant}
           plates={restaurantCtx.customRecipes.map(r => ({

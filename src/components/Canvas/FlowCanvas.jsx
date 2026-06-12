@@ -13,8 +13,8 @@ import ReactFlow, {
 import 'reactflow/dist/style.css'
 
 import IngredientNode from '../IngredientNode'
-import IngredientSidebar from '../Sidebar/IngredientSidebar'
-import ResultCard from '../RecipeCard/ResultCard'
+import IngredientSidebar from '../Sidebar'
+import RecipeResultCard from '../RecipeResultCard'
 import ConnectionLine from './ConnectionLine'
 import RestaurantBanner from '../RestaurantBanner'
 import { evaluateCombination } from '../../lib/semanticEngine'
@@ -281,7 +281,7 @@ function Flow({ user, onSaveFavorite, sounds, restaurantCtx }) {
 
           {result && showResult && (
             <div className="absolute bottom-4 right-4 z-10">
-              <ResultCard
+              <RecipeResultCard
                 recipe={result}
                 user={user}
                 onSave={handleSave}
