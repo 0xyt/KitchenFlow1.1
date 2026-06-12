@@ -59,8 +59,9 @@ export default function ConnectionLine({
         className={`react-flow__edge-path ${isValid ? 'valid-combination' : ''}`}
         style={{
           stroke: isValid ? '#10B981' : `url(#${gradientId})`,
-          strokeWidth: selected ? 4 : 2.5,
+          strokeWidth: selected ? 3 : 2,
           fill: 'none',
+          opacity: 0.6,
           strokeDasharray: isValid ? '6 3' : '8 4',
           animation: isValid ? 'dashFlow 0.5s linear infinite' : 'dashFlow 1s linear infinite',
           filter: isValid ? 'drop-shadow(0 0 6px rgba(16, 185, 129, 0.5))' : 'none',

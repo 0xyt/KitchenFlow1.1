@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore'
+import { doc, getDoc, setDoc, collection, serverTimestamp } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 
 const ROLES = {
@@ -22,46 +22,53 @@ export default function useUserRole(user) {
       return
     }
 
-    const userRef = doc(db, 'users', user.uid)
+    if (createdRef.current) return
+    createdRef.current = true
 
-    const unsub = onSnapshot(
-      userRef,
-      (snap) => {
-        if (snap.exists()) {
-          const data = snap.data()
-          setRole(data.role || ROLES.consumer)
-          setRestaurantId(data.restaurantId || null)
-          setLoading(false)
-        } else if (!createdRef.current) {
-          createdRef.current = true
-          setDoc(userRef, {
+    const init = async () => {
+      const userRef = doc(db, 'users', user.uid)
+      const snap = await getDoc(userRef)
+
+      if (!snap.exists()) {
+        try {
+          const restaurantRef = doc(collection(db, 'restaurants'))
+          await setDoc(restaurantRef, {
+            name: user.displayName + "'s Restaurant",
+            description: '',
+            phone: '',
+            address: '',
+            ownerUid: user.uid,
+            memberIds: [user.uid],
+            plan: 'free',
+            createdAt: serverTimestamp(),
+          })
+
+          await setDoc(userRef, {
             displayName: user.displayName || '',
             email: user.email || '',
             photoURL: user.photoURL || '',
-            role: ROLES.consumer,
-            restaurantId: null,
+            role: 'restaurant_admin',
+            restaurantId: restaurantRef.id,
             createdAt: serverTimestamp(),
-          }).then(() => {
-            setRole(ROLES.consumer)
-            setRestaurantId(null)
-            setLoading(false)
-          }).catch((err) => {
-            console.warn('[useUserRole] Error creating user doc:', err.message)
-            setRole(ROLES.consumer)
-            setRestaurantId(null)
-            setLoading(false)
           })
-        }
-      },
-      (err) => {
-        console.warn('[useUserRole] Snapshot error:', err.message)
-        setRole(ROLES.consumer)
-        setRestaurantId(null)
-        setLoading(false)
-      }
-    )
 
-    return unsub
+          setRole('restaurant_admin')
+          setRestaurantId(restaurantRef.id)
+        } catch (err) {
+          console.warn('[useUserRole] Error creating user+restaurant:', err.message)
+          setRole(ROLES.consumer)
+          setRestaurantId(null)
+        }
+      } else {
+        const data = snap.data()
+        setRole(data.role || ROLES.consumer)
+        setRestaurantId(data.restaurantId || null)
+      }
+
+      setLoading(false)
+    }
+
+    init()
   }, [user])
 
   return {

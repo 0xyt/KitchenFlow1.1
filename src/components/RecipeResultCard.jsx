@@ -1,16 +1,37 @@
-import { useState, useCallback } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { getTotalCompatibility } from '../utils/compatibilityEngine'
+import { getTotalCompatibility, getIngredientPrice } from '../utils/compatibilityEngine'
+
+const STYLES = [
+  { id: 'ensalada', emoji: '🥗', label: 'Ensalada', price: 6.50 },
+  { id: 'bowl', emoji: '🥣', label: 'Bowl', price: 8.50 },
+  { id: 'sandwich', emoji: '🥪', label: 'Sándwich', price: 7.50 },
+  { id: 'wrap', emoji: '🌯', label: 'Wrap', price: 7.00 },
+  { id: 'pasta', emoji: '🍝', label: 'Pasta', price: 9.00 },
+  { id: 'pizza', emoji: '🍕', label: 'Pizza', price: 10.00 },
+]
 
 export default function RecipeResultCard({ recipe, user, onSave, onClear, flashKey }) {
   const [saved, setSaved] = useState(false)
+  const [selectedStyle, setSelectedStyle] = useState(STYLES[0])
+
   const totalCompat = recipe?.ingredients ? getTotalCompatibility(recipe.ingredients.map(i => i.id || i.ingredientId)) : 0
 
+  const ingsPrice = useMemo(() => {
+    if (!recipe?.ingredients) return 0
+    return recipe.ingredients.reduce((sum, i) => {
+      const price = getIngredientPrice(i)
+      return sum + (typeof price === 'number' ? price : 0)
+    }, 0)
+  }, [recipe])
+
+  const totalPrice = selectedStyle.price + ingsPrice
+
   const handleSave = useCallback(() => {
-    onSave()
+    onSave(selectedStyle)
     setSaved(true)
     setTimeout(() => setSaved(false), 2000)
-  }, [onSave])
+  }, [onSave, selectedStyle])
 
   if (!recipe) return null
 
@@ -102,6 +123,33 @@ export default function RecipeResultCard({ recipe, user, onSave, onClear, flashK
               {ing.emoji} {ing.nombre || ing.name}
             </span>
           ))}
+        </div>
+
+        <div className="mb-4">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.05em] text-[#78716C] mb-2">
+            Estilo del plato
+          </p>
+          <div className="flex flex-wrap gap-1.5">
+            {STYLES.map(s => (
+              <button
+                key={s.id}
+                onClick={() => setSelectedStyle(s)}
+                className={`flex items-center gap-1.5 px-[10px] py-[6px] rounded-full text-[12px] transition-all ${
+                  selectedStyle.id === s.id
+                    ? 'bg-[#8B5CF6] text-white border-[#8B5CF6]'
+                    : 'bg-[#F3F0FF] border border-[#DDD8F5] text-[#6D28D9]'
+                }`}
+              >
+                <span>{s.emoji}</span>
+                <span>{s.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex items-center justify-between mb-3 px-1">
+          <span className="text-[13px] text-text font-semibold">Total</span>
+          <span className="text-[18px] font-bold text-[#8B5CF6]">${totalPrice.toFixed(2)}</span>
         </div>
 
         {user && (

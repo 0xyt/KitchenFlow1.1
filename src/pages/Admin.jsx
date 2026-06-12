@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Store, Package, ClipboardList, Users,
@@ -33,9 +33,10 @@ function TabButton({ tab, active, onClick }) {
       onClick={onClick}
       className={`w-full flex items-center gap-3 px-4 py-3 text-sm font-medium transition-all rounded-[8px] ${
         active
-          ? 'bg-primary/[0.1] text-primary'
-          : 'text-muted hover:bg-surface-hover hover:text-text'
+          ? 'bg-[#F3F0FF] text-[#6D28D9] border-l-[3px] border-[#8B5CF6]'
+          : 'text-[#78716C] hover:bg-[#F8F7FF]'
       }`}
+      style={active ? { borderLeft: '3px solid #8B5CF6' } : {}}
     >
       <Icon size={18} />
       <span>{tab.label}</span>
@@ -97,8 +98,14 @@ export default function Admin() {
     <div className="min-h-screen bg-bg text-text">
       <div className="flex">
         <aside className="w-[220px] min-h-screen border-r border-[#E5E0D5] bg-white shrink-0 flex flex-col">
-          <div className="flex items-center justify-between px-4 h-14 border-b border-[#E5E0D5]">
-            <span className="font-semibold text-[15px] text-primary">Panel Admin</span>
+          <div className="flex items-center gap-3 px-4 h-14 border-b border-[#E5E0D5]">
+            <div className="w-8 h-8 flex items-center justify-center bg-[#8B5CF6] rounded-[8px] text-white text-[16px]">
+              🍽️
+            </div>
+            <div>
+              <span className="text-[16px] font-bold text-[#1C1917]">KitchenFlow</span>
+              <p className="text-[11px] text-[#78716C] leading-tight">Panel Admin</p>
+            </div>
           </div>
           <nav className="flex-1 p-2 space-y-1 mt-2">
             {TABS.map(tab => (
@@ -183,7 +190,7 @@ function RestaurantTab({ user, restaurantId, showToast }) {
   const [saving, setSaving] = useState(false)
   const loadedRef = useRef(false)
 
-  useState(() => {
+  useEffect(() => {
     if (loadedRef.current) return
     loadedRef.current = true
     if (!db || !restaurantId) return
@@ -260,7 +267,7 @@ function IngredientsTab({ restaurantId, showToast }) {
   const [disabledIngredientIds, setDisabledIngredientIds] = useState([])
   const loadedRef = useRef(false)
 
-  useState(() => {
+  useEffect(() => {
     if (loadedRef.current || !db || !restaurantId) return
     loadedRef.current = true
     const q = query(collection(db, 'ingredients'), where('restaurantId', '==', restaurantId))
@@ -362,7 +369,13 @@ function IngredientsTab({ restaurantId, showToast }) {
                       <span className="text-[12px] text-muted">{ing.categoria}</span>
                     </td>
                     <td className="py-3 pr-4">
-                      <span className={`text-[12px] font-medium ${level.color}`}>{level.label}</span>
+                      <span className={`inline-block px-2 py-0.5 rounded-full text-[11px] font-medium ${
+                        level.label === 'Alta' || level.label === 'Muy alta'
+                          ? 'bg-[#DCFCE7] text-[#15803D]'
+                          : level.label === 'Media'
+                          ? 'bg-[#FEF3C7] text-[#D97706]'
+                          : 'bg-[#FEE2E2] text-[#DC2626]'
+                      }`}>{level.label}</span>
                       <span className="text-muted text-[11px] ml-1">({count})</span>
                     </td>
                     <td className="py-3 pr-4">
@@ -460,15 +473,22 @@ function MenuTab({ restaurantId, showToast }) {
   const [editing, setEditing] = useState(null)
   const loadedRef = useRef(false)
 
-  useState(() => {
-    if (loadedRef.current || !db || !restaurantId) return
-    loadedRef.current = true
-    onSnapshot(collection(db, 'restaurants', restaurantId, 'recipes'), snap => {
+  useEffect(() => {
+    if (!db || !restaurantId) return
+    const q = query(
+      collection(db, 'recipes'),
+      where('restaurantId', '==', restaurantId)
+    )
+    const unsubRecipes = onSnapshot(q, snap => {
       setPlates(snap.docs.map(d => ({ id: d.id, ...d.data() })))
     })
-    onSnapshot(doc(db, 'restaurants', restaurantId), snap => {
+    const unsubRestaurant = onSnapshot(doc(db, 'restaurants', restaurantId), snap => {
       if (snap.exists()) setMenuPublic(snap.data().menuPublic || false)
     })
+    return () => {
+      unsubRecipes()
+      unsubRestaurant()
+    }
   }, [restaurantId])
 
   const togglePublish = async (plate) => {
@@ -572,7 +592,18 @@ function MenuTab({ restaurantId, showToast }) {
           </div>
         ))}
         {plates.length === 0 && (
-          <p className="text-secondary text-center py-8">Sin platos aún. Crea combinaciones desde el canvas.</p>
+          <div className="text-center py-[60px] px-5">
+            <div className="text-[48px] mb-4">🍽️</div>
+            <p className="text-[15px] font-semibold text-[#1C1917]">Tu menú está vacío</p>
+            <p className="text-[13px] text-[#78716C] mt-[6px]">
+              Ve al canvas, conecta ingredientes y guarda tu primera receta
+            </p>
+            <a href="#/"
+              className="inline-block mt-5 px-5 py-[10px] bg-[#8B5CF6] text-white rounded-[8px] text-[13px] font-semibold no-underline"
+            >
+              Ir al canvas →
+            </a>
+          </div>
         )}
       </div>
     </div>
@@ -586,14 +617,14 @@ function TeamTab({ restaurantId, showToast }) {
   const [inviteRole, setInviteRole] = useState('staff')
   const loadedRef = useRef(false)
 
-  useState(() => {
-    if (loadedRef.current || !db || !restaurantId) return
-    loadedRef.current = true
-    onSnapshot(doc(db, 'restaurants', restaurantId), snap => {
+  useEffect(() => {
+    if (!db || !restaurantId) return
+    const unsub = onSnapshot(doc(db, 'restaurants', restaurantId), snap => {
       if (snap.exists()) {
         setMembers(snap.data().members || [])
       }
     })
+    return unsub
   }, [restaurantId])
 
   const sendInvite = async () => {

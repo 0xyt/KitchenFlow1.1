@@ -25,7 +25,7 @@ const edgeTypes = { connection: ConnectionLine }
 
 const defaultEdgeOptions = {
   type: 'connection',
-  markerEnd: { type: MarkerType.ArrowClosed, color: '#F59E0B' },
+  markerEnd: { type: MarkerType.ArrowClosed, color: '#8B5CF6' },
 }
 
 function Flow({ user, onSaveFavorite, sounds, restaurantCtx }) {
@@ -133,9 +133,9 @@ function Flow({ user, onSaveFavorite, sounds, restaurantCtx }) {
       type: 'smoothstep',
       animated: true,
       style: {
-        stroke: '#F59E0B',
+        stroke: '#8B5CF6',
         strokeWidth: 2,
-        filter: 'drop-shadow(0 0 6px #F59E0B)',
+        opacity: 0.6,
       },
     }, eds))
     sounds?.playClick?.()
@@ -255,6 +255,7 @@ function Flow({ user, onSaveFavorite, sounds, restaurantCtx }) {
             snapToGrid
             snapGrid={[15, 15]}
           >
+            <Background variant="dots" color="#DDD8F5" gap={16} size={1.5} />
             <Controls showInteractive={false} />
           </ReactFlow>
 
@@ -264,13 +265,14 @@ function Flow({ user, onSaveFavorite, sounds, restaurantCtx }) {
           />
 
           {showResultPanel && (
-            <div className="absolute right-4 top-4 z-10 glass-panel-strong rounded-[12px] p-4 max-w-xs border border-[#F59E0B]/30 shadow-lg shadow-[#F59E0B]/10">
-              <h4 className="font-title text-sm font-bold text-white mb-2">¡Combinación detectada! 🎉</h4>
+            <div className="absolute right-4 top-4 z-10 rounded-[12px] p-4 max-w-xs border border-[#DDD8F5] shadow-lg"
+              style={{ background: 'rgba(139, 92, 246, 0.08)', backdropFilter: 'blur(8px)' }}>
+              <h4 className="text-sm font-bold text-[#1C1917] mb-2">¡Combinación detectada! 🎉</h4>
               <div className="flex flex-wrap gap-1.5">
                 {activeIngredients.map(id => {
                   const n = nodes.find(n => n.id === id)
                   return n ? (
-                    <span key={id} className="text-xs text-[#A0A0B8] bg-[#0F0F1A] px-2 py-1 rounded-full">
+                    <span key={id} className="text-xs text-text bg-white/60 px-2 py-1 rounded-full border border-[#E5E0F5]">
                       {n.data.emoji} {n.data.label}
                     </span>
                   ) : null

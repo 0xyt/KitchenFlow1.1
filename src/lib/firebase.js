@@ -26,8 +26,6 @@ if (hasConfig && !getApps().length) {
     db = getFirestore(app)
     storage = getStorage(app)
     googleProvider = new GoogleAuthProvider()
-    googleProvider.addScope('profile')
-    googleProvider.addScope('email')
   } catch (e) {
     console.warn('[Firebase] Init failed:', e.message)
   }

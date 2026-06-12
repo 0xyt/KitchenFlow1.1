@@ -3,25 +3,24 @@ import { Handle, Position } from 'reactflow'
 import { motion } from 'framer-motion'
 
 const CATEGORY_COLORS = {
-  verdura: { hex: '#10B981', label: 'Veggie' },
-  carne: { hex: '#EF4444', label: 'Proteína' },
-  pescado: { hex: '#3B82F6', label: 'Pescado' },
-  especia: { hex: '#8B5CF6', label: 'Especia' },
-  líquido: { hex: '#F97316', label: 'Salsa' },
-  carbohidrato: { hex: '#92400E', label: 'Grano' },
-  fruta: { hex: '#EC4899', label: 'Fruta' },
-  lácteo: { hex: '#3B82F6', label: 'Lácteo' },
-  otro: { hex: '#6B7280', label: 'Otro' },
+  verdura: '#10B981',
+  proteina: '#EF4444',
+  salsa: '#F97316',
+  lacteo: '#3B82F6',
+  especia: '#8B5CF6',
+  carbohidrato: '#F59E0B',
+  fruta: '#EC4899',
+  liquido: '#06B6D4',
+  otro: '#78716C',
 }
 
 function getCategoryColor(category) {
-  return CATEGORY_COLORS[category] || { hex: '#8B5CF6', label: category }
+  return CATEGORY_COLORS[category] || '#8B5CF6'
 }
 
 function IngredientNode({ data }) {
   const [hovered, setHovered] = useState(false)
-  const catInfo = getCategoryColor(data.category)
-  const borderColor = catInfo.hex + '99'
+  const categoryColor = getCategoryColor(data.category)
 
   return (
     <motion.div
@@ -30,14 +29,17 @@ function IngredientNode({ data }) {
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 1.12 }}
       transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-      className="flex flex-col items-center justify-center rounded-[12px] bg-card cursor-grab active:cursor-grabbing relative select-none"
+      className="flex flex-col items-center justify-center cursor-grab active:cursor-grabbing relative select-none"
       style={{
         width: 80,
         height: 80,
-        border: `2px solid ${borderColor}`,
+        background: '#FFFFFF',
+        border: '1px solid #E5E0F5',
+        borderLeft: `3px solid ${categoryColor}`,
+        borderRadius: 10,
         boxShadow: hovered
-          ? `0 0 20px ${catInfo.hex}44, 0 0 40px ${catInfo.hex}22`
-          : `0 2px 8px ${catInfo.hex}22`,
+          ? `0 4px 20px rgba(139,92,246,0.15)`
+          : '0 2px 8px rgba(139,92,246,0.08)',
       }}
     >
       <motion.span
@@ -47,42 +49,29 @@ function IngredientNode({ data }) {
       >
         {data.emoji}
       </motion.span>
-      <span
-        className="text-[11px] font-semibold text-foreground text-center leading-tight mt-0.5 px-1 truncate max-w-[72px]"
-      >
+      <span className="text-[11px] font-semibold text-text text-center leading-tight mt-0.5 px-1 truncate max-w-[72px]">
         {data.label}
-      </span>
-
-      <span
-        className="absolute -top-1.5 -right-1.5 text-[7px] font-bold px-1.5 py-0.5 rounded-full border-2 border-card shadow-sm"
-        style={{
-          backgroundColor: catInfo.hex,
-          color: '#FFFFFF',
-          lineHeight: '1',
-        }}
-      >
-        {data.emoji ? '' : catInfo.label.slice(0, 3)}
       </span>
 
       <Handle
         type="target"
         position={Position.Left}
-        className="!w-2.5 !h-2.5 !border-2 !border-white"
+        className="!w-2.5 !h-2.5 !border-2"
         style={{
           left: -6,
-          backgroundColor: '#D1D5DB',
+          background: '#FFFFFF',
+          borderColor: '#C4B5FD',
         }}
       />
 
       <Handle
         type="source"
         position={Position.Right}
-        className="!w-3 !h-3 !border-2 !border-white"
+        className="!w-2.5 !h-2.5 !border-2"
         style={{
-          right: -7,
-          backgroundColor: '#F59E0B',
-          boxShadow: '0 0 6px rgba(245, 158, 11, 0.5)',
-          animation: 'pulse-amber 2s ease-in-out infinite',
+          right: -6,
+          background: '#8B5CF6',
+          borderColor: '#FFFFFF',
         }}
       />
     </motion.div>
