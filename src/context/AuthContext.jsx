@@ -1,5 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react'
-import { onAuthStateChanged } from 'firebase/auth'
+import { createContext, useContext, useState, useEffect, useRef } from 'react'
+import { onAuthStateChanged, getRedirectResult } from 'firebase/auth'
 import { auth } from '../lib/firebase'
 import useUserRole from '../hooks/useUserRole'
 
@@ -8,22 +8,38 @@ const AuthContext = createContext(null)
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null)
   const [authLoading, setAuthLoading] = useState(true)
+  const initRef = useRef(false)
 
   useEffect(() => {
     if (!auth) {
       setAuthLoading(false)
       return
     }
+
+    if (initRef.current) return
+    initRef.current = true
+
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result) {
+          setUser(result.user)
+        }
+      })
+      .catch((err) => {
+        console.error('[Auth] Redirect error:', err.code, err.message)
+      })
+
     const unsub = onAuthStateChanged(auth, (u) => {
       setUser(u)
       setAuthLoading(false)
     })
+
     return unsub
   }, [])
 
   const { role, restaurantId, isAdmin, isConsumer, isSuperAdmin, loading: roleLoading } = useUserRole(user)
 
-  const loading = authLoading || roleLoading
+  const loading = authLoading || (!!user && roleLoading)
 
   const value = {
     user,

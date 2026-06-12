@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    background-color: #FAF9F7;
+  }
+
   :root {
     --bg: 40 20% 97%;
     --surface: 40 20% 93%;

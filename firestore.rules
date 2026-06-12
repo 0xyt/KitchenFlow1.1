@@ -2,8 +2,30 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /users/{userId}/{document=**} {
+
+    // Usuarios: cada usuario solo su propio doc
+    match /users/{userId} {
       allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Restaurantes: el dueño y miembros pueden leer/escribir su restaurante
+    match /restaurants/{restaurantId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+        && (resource.data.ownerUid == request.auth.uid
+        || request.resource.data.ownerUid == request.auth.uid);
+    }
+
+    // Solo el owner puede leer/escribir subcolecciones del restaurante
+    match /restaurants/{restaurantId}/{document=**} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+        && get(/databases/$(database)/documents/restaurants/$(restaurantId)).data.ownerUid == request.auth.uid;
+    }
+
+    // Invitaciones: cualquier usuario autenticado puede leer/escribir
+    match /invitations/{invitationId} {
+      allow read, write: if request.auth != null;
     }
   }
 }

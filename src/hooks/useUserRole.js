@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { doc, onSnapshot, setDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../lib/firebase'
 
@@ -12,6 +12,7 @@ export default function useUserRole(user) {
   const [role, setRole] = useState(null)
   const [restaurantId, setRestaurantId] = useState(null)
   const [loading, setLoading] = useState(true)
+  const createdRef = useRef(false)
 
   useEffect(() => {
     if (!user || !db) {
@@ -30,7 +31,9 @@ export default function useUserRole(user) {
           const data = snap.data()
           setRole(data.role || ROLES.consumer)
           setRestaurantId(data.restaurantId || null)
-        } else {
+          setLoading(false)
+        } else if (!createdRef.current) {
+          createdRef.current = true
           setDoc(userRef, {
             displayName: user.displayName || '',
             email: user.email || '',
@@ -38,14 +41,20 @@ export default function useUserRole(user) {
             role: ROLES.consumer,
             restaurantId: null,
             createdAt: serverTimestamp(),
+          }).then(() => {
+            setRole(ROLES.consumer)
+            setRestaurantId(null)
+            setLoading(false)
+          }).catch((err) => {
+            console.warn('[useUserRole] Error creating user doc:', err.message)
+            setRole(ROLES.consumer)
+            setRestaurantId(null)
+            setLoading(false)
           })
-          setRole(ROLES.consumer)
-          setRestaurantId(null)
         }
-        setLoading(false)
       },
       (err) => {
-        console.warn('useUserRole error:', err.message)
+        console.warn('[useUserRole] Snapshot error:', err.message)
         setRole(ROLES.consumer)
         setRestaurantId(null)
         setLoading(false)
