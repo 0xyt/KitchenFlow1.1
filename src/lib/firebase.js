@@ -1,9 +1,5 @@
 import { initializeApp, getApps } from 'firebase/app'
-import {
-  getAuth,
-  GoogleAuthProvider,
-  browserPopupRedirectResolver,
-} from 'firebase/auth'
+import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
 import { getStorage } from 'firebase/storage'
 
@@ -22,7 +18,6 @@ let auth = null
 let db = null
 let storage = null
 let googleProvider = null
-let redirectResolver = null
 
 if (hasConfig && !getApps().length) {
   try {
@@ -31,12 +26,11 @@ if (hasConfig && !getApps().length) {
     db = getFirestore(app)
     storage = getStorage(app)
     googleProvider = new GoogleAuthProvider()
-    redirectResolver = browserPopupRedirectResolver
-
-    console.log('[Firebase] Inicializado correctamente')
+    googleProvider.addScope('profile')
+    googleProvider.addScope('email')
   } catch (e) {
     console.warn('[Firebase] Init failed:', e.message)
   }
 }
 
-export { auth, db, storage, googleProvider, redirectResolver }
+export { auth, db, storage, googleProvider }

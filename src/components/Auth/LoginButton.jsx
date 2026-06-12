@@ -1,5 +1,5 @@
 import { signInWithRedirect, signOut } from 'firebase/auth'
-import { auth, googleProvider, redirectResolver } from '../../lib/firebase'
+import { auth, googleProvider } from '../../lib/firebase'
 
 export default function LoginButton({ user }) {
   const handleLogin = async () => {
@@ -8,16 +8,15 @@ export default function LoginButton({ user }) {
       return
     }
     try {
-      console.log('[Login] Iniciando redirect a Google...')
-      await signInWithRedirect(auth, googleProvider, redirectResolver)
+      await signInWithRedirect(auth, googleProvider)
     } catch (err) {
       console.error('[Login] Error:', err.code, err.message)
     }
   }
 
-  const handleLogout = async () => {
+  const handleLogout = () => {
     if (!auth) return
-    await signOut(auth)
+    signOut(auth).catch(console.error)
   }
 
   if (user) {
